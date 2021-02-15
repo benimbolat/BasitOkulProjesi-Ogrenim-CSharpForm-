@@ -10,18 +10,16 @@ using System.Windows.Forms;
 
 namespace Okul_Projesi
 {
-    public partial class Form1 : Form
+    public partial class Formogretmen : Form
     {
-        public Form1()
+        public Formogretmen()
         {
             InitializeComponent();
         }
 
-        
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            FormOgrenciNotlari fr = new FormOgrenciNotlari();
-            fr.numara = textBox1.Text;
+            FormKulup fr = new FormKulup();
             fr.Show();
         }
     }

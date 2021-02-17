@@ -24,5 +24,11 @@ namespace Okul_Projesi
             fr.numara = textBox1.Text;
             fr.Show();
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Formogretmen frogrt = new Formogretmen();
+            frogrt.Show();
+        }
     }
 }

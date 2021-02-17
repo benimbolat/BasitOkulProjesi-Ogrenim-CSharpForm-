@@ -21,13 +21,14 @@ namespace Okul_Projesi
         }
         public void liste ()
         {
-            SqlDataAdapter da = new SqlDataAdapter("Select * Form Table_Kulup", baglanti);
+            SqlDataAdapter da = new SqlDataAdapter("Select * From Table_Kulup", baglanti);
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridView1.DataSource = dt;
         }
         private void FormKulup_Load(object sender, EventArgs e)
         {
+            
             liste();
         }
 
@@ -45,9 +46,36 @@ namespace Okul_Projesi
             komut.ExecuteNonQuery();
             baglanti.Close();
             MessageBox.Show("Kulüp Listeye Eklendi","Bilgi");
+            liste();
+        }
 
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            textBoxid.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            textBoxad.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+        }
 
+        private void buttonsil_Click(object sender, EventArgs e)
+        {
+            baglanti.Open();
+            SqlCommand komut = new SqlCommand("Delete From Table_Kulup where kulupid=@p1",baglanti);
+            komut.Parameters.AddWithValue("@p1", textBoxid.Text);
+            komut.ExecuteNonQuery();
+            baglanti.Close();
+            MessageBox.Show("Kulup silme işlemi başarıyla gerçekleşti.","Başarılı işlem");
+            liste();
+        }
 
+        private void buttonguncelle_Click(object sender, EventArgs e)
+        {
+            baglanti.Open();
+            SqlCommand komut = new SqlCommand("Update Table_Kulup set kulupad=@p1 where kulupid=@p2", baglanti);
+            komut.Parameters.AddWithValue("@p1", textBoxad.Text);
+            komut.Parameters.AddWithValue("@p2", textBoxid.Text);
+            komut.ExecuteNonQuery();
+            baglanti.Close();
+            MessageBox.Show("Kulup güncelleme işlemi başarıyla gerçekleşti.", "Başarılı işlem");
+            liste();
         }
     }
 }

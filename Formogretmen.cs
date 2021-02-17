@@ -22,5 +22,11 @@ namespace Okul_Projesi
             FormKulup fr = new FormKulup();
             fr.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormDers frders = new FormDers();
+            frders.Show();
+        }
     }
 }

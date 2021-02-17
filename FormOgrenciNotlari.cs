@@ -21,7 +21,7 @@ namespace Okul_Projesi
         public string numara;
         private void FormOgrenciNotlari_Load(object sender, EventArgs e)
         {
-            SqlCommand komut = new SqlCommand("Select dersad,sınav1,sınav2,sınav3,proje,ortalama,durum From Table_Not inner join table_ders on table_not.dersid=table_ders.dersid where ogrenciiid=1", baglanti);
+            SqlCommand komut = new SqlCommand("Select dersad,sınav1,sınav2,sınav3,proje,ortlama,durum From Table_Not inner join table_ders on table_not.dersid=table_ders.dersid where ogrenciiid=1", baglanti);
             komut.Parameters.AddWithValue("@p1", numara);
             // this.Text.ToString();
 

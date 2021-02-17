@@ -52,6 +52,7 @@ namespace Okul_Projesi
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(526, 179);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // label1
             // 
@@ -143,6 +144,7 @@ namespace Okul_Projesi
             this.buttonsil.TabIndex = 9;
             this.buttonsil.Text = "Sil";
             this.buttonsil.UseVisualStyleBackColor = false;
+            this.buttonsil.Click += new System.EventHandler(this.buttonsil_Click);
             // 
             // buttonguncelle
             // 
@@ -159,6 +161,7 @@ namespace Okul_Projesi
             this.buttonguncelle.TabIndex = 8;
             this.buttonguncelle.Text = "Güncelle";
             this.buttonguncelle.UseVisualStyleBackColor = false;
+            this.buttonguncelle.Click += new System.EventHandler(this.buttonguncelle_Click);
             // 
             // FormKulup
             // 

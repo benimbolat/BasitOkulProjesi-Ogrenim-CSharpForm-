@@ -72,6 +72,12 @@
     <Compile Include="FormKulup.Designer.cs">
       <DependentUpon>FormKulup.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormOgrenci.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOgrenci.Designer.cs">
+      <DependentUpon>FormOgrenci.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormOgrenciNotlari.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,12 @@
     <Compile Include="Formogretmen.Designer.cs">
       <DependentUpon>Formogretmen.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSinavNotlari.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSinavNotlari.Designer.cs">
+      <DependentUpon>FormSinavNotlari.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -95,11 +107,17 @@
     <EmbeddedResource Include="FormKulup.resx">
       <DependentUpon>FormKulup.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormOgrenci.resx">
+      <DependentUpon>FormOgrenci.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormOgrenciNotlari.resx">
       <DependentUpon>FormOgrenciNotlari.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formogretmen.resx">
       <DependentUpon>Formogretmen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSinavNotlari.resx">
+      <DependentUpon>FormSinavNotlari.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -66,7 +66,7 @@ SELECT dersid, dersad FROM Table_Ders WHERE (dersid = @dersid)</CommandText>
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="OkulProjesiConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="dersguncelle" Modifier="Public" Name="dersguncelle" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="dersguncelle">
+              <DbSource ConnectionRef="OkulProjesiConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="dersguncelle" Modifier="Public" Name="dersguncelle" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="dersguncelle">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE [Table_Ders] SET [dersad] = @dersad WHERE ([dersid] = @Original_dersid)</CommandText>
@@ -77,7 +77,7 @@ SELECT dersid, dersad FROM Table_Ders WHERE (dersid = @dersid)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="OkulProjesiConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Derssil" Modifier="Public" Name="Derssil" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="Derssil">
+              <DbSource ConnectionRef="OkulProjesiConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Derssil" Modifier="Public" Name="Derssil" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="Derssil">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM [Table_Ders] WHERE ([dersid] = @Original_dersid)</CommandText>
@@ -89,6 +89,192 @@ SELECT dersid, dersad FROM Table_Ders WHERE (dersid = @dersid)</CommandText>
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="OkulProjesiConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="ogrencilistesi" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="ogrencilistesi" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="ogrencilistesi" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Table_Kulup.kulupad, Table_Ogrenci.ogrenciid, Table_Ogrenci.ogrenciadı, Table_Ogrenci.ogrencisoyadı, Table_Ogrenci.orgrencisinsiyet
+FROM            Table_Kulup INNER JOIN
+                         Table_Ogrenci ON Table_Kulup.kulupid = Table_Ogrenci.ogrencikulup</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="kulupad" DataSetColumn="kulupad" />
+              <Mapping SourceColumn="ogrenciid" DataSetColumn="ogrenciid" />
+              <Mapping SourceColumn="ogrenciadı" DataSetColumn="ogrenciadı" />
+              <Mapping SourceColumn="ogrencisoyadı" DataSetColumn="ogrencisoyadı" />
+              <Mapping SourceColumn="orgrencisinsiyet" DataSetColumn="orgrencisinsiyet" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="OkulProjesiConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="guncellemesorgusu" Modifier="Public" Name="guncellemesorgusu" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="guncellemesorgusu">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       Table_Ogrenci
+SET                ogrenciadı = @oad, ogrencisoyadı = @osad, ogrencikulup = @okulup, orgrencisinsiyet = @ocinsiyet
+WHERE        (ogrenciid = @ogrenciid)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="oad" ColumnName="ogrenciadı" DataSourceName="OkulProjesi.dbo.Table_Ogrenci" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@oad" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="ogrenciadı" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="osad" ColumnName="ogrencisoyadı" DataSourceName="OkulProjesi.dbo.Table_Ogrenci" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@osad" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="ogrencisoyadı" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="okulup" ColumnName="ogrencikulup" DataSourceName="OkulProjesi.dbo.Table_Ogrenci" DataTypeServer="tinyint" DbType="Byte" Direction="Input" ParameterName="@okulup" Precision="0" ProviderType="TinyInt" Scale="0" Size="1" SourceColumn="ogrencikulup" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="ocinsiyet" ColumnName="orgrencisinsiyet" DataSourceName="OkulProjesi.dbo.Table_Ogrenci" DataTypeServer="varchar(5)" DbType="AnsiString" Direction="Input" ParameterName="@ocinsiyet" Precision="0" ProviderType="VarChar" Scale="0" Size="5" SourceColumn="orgrencisinsiyet" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="ogrenciid" ColumnName="ogrenciid" DataSourceName="OkulProjesi.dbo.Table_Ogrenci" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@ogrenciid" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ogrenciid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="OkulProjesiConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ogrenciekle" Modifier="Public" Name="ogrenciekle" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ogrenciekle">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO Table_Ogrenci
+                         (ogrenciadı, ogrencisoyadı, orgrencisinsiyet, ogrencikulup)
+VALUES        (@ograd,@ogrsoyad,@ogrcinsiyet,@ogrkulup)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="ograd" ColumnName="ogrenciadı" DataSourceName="OkulProjesi.dbo.Table_Ogrenci" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@ograd" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="ogrenciadı" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="ogrsoyad" ColumnName="ogrencisoyadı" DataSourceName="OkulProjesi.dbo.Table_Ogrenci" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@ogrsoyad" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="ogrencisoyadı" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="ogrcinsiyet" ColumnName="orgrencisinsiyet" DataSourceName="OkulProjesi.dbo.Table_Ogrenci" DataTypeServer="varchar(5)" DbType="AnsiString" Direction="Input" ParameterName="@ogrcinsiyet" Precision="0" ProviderType="VarChar" Scale="0" Size="5" SourceColumn="orgrencisinsiyet" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="ogrkulup" ColumnName="ogrencikulup" DataSourceName="OkulProjesi.dbo.Table_Ogrenci" DataTypeServer="tinyint" DbType="Byte" Direction="Input" ParameterName="@ogrkulup" Precision="0" ProviderType="TinyInt" Scale="0" Size="1" SourceColumn="ogrencikulup" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="OkulProjesiConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Silmesorgusu" Modifier="Public" Name="Silmesorgusu" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="Silmesorgusu">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM Table_Ogrenci
+WHERE        (ogrenciid = @ogrenciid)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="ogrenciid" ColumnName="ogrenciid" DataSourceName="OkulProjesi.dbo.Table_Ogrenci" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@ogrenciid" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ogrenciid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Table_NotTableAdapter" GeneratorDataComponentClassName="Table_NotTableAdapter" Name="Table_Not" UserDataComponentName="Table_NotTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="OkulProjesiConnectionString (Settings)" DbObjectName="OkulProjesi.dbo.Table_Not" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="ntotlistesi" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="ntotlistesi" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="ntotlistesi" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [Table_Not] WHERE (([notid] = @Original_notid) AND ((@IsNull_dersid = 1 AND [dersid] IS NULL) OR ([dersid] = @Original_dersid)) AND ((@IsNull_ogrenciiid = 1 AND [ogrenciiid] IS NULL) OR ([ogrenciiid] = @Original_ogrenciiid)) AND ((@IsNull_sınav1 = 1 AND [sınav1] IS NULL) OR ([sınav1] = @Original_sınav1)) AND ((@IsNull_sınav2 = 1 AND [sınav2] IS NULL) OR ([sınav2] = @Original_sınav2)) AND ((@IsNull_sınav3 = 1 AND [sınav3] IS NULL) OR ([sınav3] = @Original_sınav3)) AND ((@IsNull_proje = 1 AND [proje] IS NULL) OR ([proje] = @Original_proje)) AND ((@IsNull_ortlama = 1 AND [ortlama] IS NULL) OR ([ortlama] = @Original_ortlama)) AND ((@IsNull_durum = 1 AND [durum] IS NULL) OR ([durum] = @Original_durum)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_notid" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="notid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_dersid" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="dersid" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@Original_dersid" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="dersid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ogrenciiid" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ogrenciiid" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ogrenciiid" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ogrenciiid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_sınav1" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="sınav1" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@Original_sınav1" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="sınav1" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_sınav2" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="sınav2" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@Original_sınav2" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="sınav2" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_sınav3" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="sınav3" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@Original_sınav3" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="sınav3" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_proje" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="proje" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@Original_proje" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="proje" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ortlama" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ortlama" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_ortlama" Precision="5" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="ortlama" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_durum" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="durum" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_durum" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="durum" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [Table_Not] ([dersid], [ogrenciiid], [sınav1], [sınav2], [sınav3], [proje], [ortlama], [durum]) VALUES (@dersid, @ogrenciiid, @sınav1, @sınav2, @sınav3, @proje, @ortlama, @durum);
+SELECT notid, dersid, ogrenciiid, sınav1, sınav2, sınav3, proje, ortlama, durum FROM Table_Not WHERE (notid = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@dersid" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="dersid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ogrenciiid" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ogrenciiid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@sınav1" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="sınav1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@sınav2" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="sınav2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@sınav3" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="sınav3" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@proje" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="proje" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@ortlama" Precision="5" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="ortlama" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@durum" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="durum" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        notid, dersid, ogrenciiid, sınav1, sınav2, sınav3, proje, ortlama, durum
+FROM            Table_Not
+WHERE        (ogrenciiid = @ogrenciiid)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="ogrenciiid" ColumnName="ogrenciiid" DataSourceName="OkulProjesi.dbo.Table_Not" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@ogrenciiid" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ogrenciiid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [Table_Not] SET [dersid] = @dersid, [ogrenciiid] = @ogrenciiid, [sınav1] = @sınav1, [sınav2] = @sınav2, [sınav3] = @sınav3, [proje] = @proje, [ortlama] = @ortlama, [durum] = @durum WHERE (([notid] = @Original_notid) AND ((@IsNull_dersid = 1 AND [dersid] IS NULL) OR ([dersid] = @Original_dersid)) AND ((@IsNull_ogrenciiid = 1 AND [ogrenciiid] IS NULL) OR ([ogrenciiid] = @Original_ogrenciiid)) AND ((@IsNull_sınav1 = 1 AND [sınav1] IS NULL) OR ([sınav1] = @Original_sınav1)) AND ((@IsNull_sınav2 = 1 AND [sınav2] IS NULL) OR ([sınav2] = @Original_sınav2)) AND ((@IsNull_sınav3 = 1 AND [sınav3] IS NULL) OR ([sınav3] = @Original_sınav3)) AND ((@IsNull_proje = 1 AND [proje] IS NULL) OR ([proje] = @Original_proje)) AND ((@IsNull_ortlama = 1 AND [ortlama] IS NULL) OR ([ortlama] = @Original_ortlama)) AND ((@IsNull_durum = 1 AND [durum] IS NULL) OR ([durum] = @Original_durum)));
+SELECT notid, dersid, ogrenciiid, sınav1, sınav2, sınav3, proje, ortlama, durum FROM Table_Not WHERE (notid = @notid)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@dersid" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="dersid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ogrenciiid" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ogrenciiid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@sınav1" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="sınav1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@sınav2" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="sınav2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@sınav3" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="sınav3" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@proje" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="proje" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@ortlama" Precision="5" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="ortlama" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@durum" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="durum" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_notid" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="notid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_dersid" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="dersid" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@Original_dersid" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="dersid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ogrenciiid" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ogrenciiid" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ogrenciiid" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ogrenciiid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_sınav1" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="sınav1" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@Original_sınav1" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="sınav1" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_sınav2" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="sınav2" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@Original_sınav2" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="sınav2" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_sınav3" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="sınav3" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@Original_sınav3" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="sınav3" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_proje" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="proje" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Byte" Direction="Input" ParameterName="@Original_proje" Precision="0" ProviderType="TinyInt" Scale="0" Size="0" SourceColumn="proje" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ortlama" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ortlama" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_ortlama" Precision="5" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="ortlama" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_durum" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="durum" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_durum" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="durum" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="notid" ColumnName="notid" DataSourceName="OkulProjesi.dbo.Table_Not" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@notid" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="notid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="notid" DataSetColumn="notid" />
+              <Mapping SourceColumn="dersid" DataSetColumn="dersid" />
+              <Mapping SourceColumn="ogrenciiid" DataSetColumn="ogrenciiid" />
+              <Mapping SourceColumn="sınav1" DataSetColumn="sınav1" />
+              <Mapping SourceColumn="sınav2" DataSetColumn="sınav2" />
+              <Mapping SourceColumn="sınav3" DataSetColumn="sınav3" />
+              <Mapping SourceColumn="proje" DataSetColumn="proje" />
+              <Mapping SourceColumn="ortlama" DataSetColumn="ortlama" />
+              <Mapping SourceColumn="durum" DataSetColumn="durum" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="OkulProjesiConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="guncellemenot" Modifier="Public" Name="guncellemenot" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="guncellemenot">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE [Table_Not] SET [dersid] = @dersid, [ogrenciiid] = @ogrenciiid, [sınav1] = @sınav1, [sınav2] = @sınav2, [sınav3] = @sınav3, [proje] = @proje, [ortlama] = @ortlama, [durum] = @durum WHERE ([notid] = @Original_notid)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="dersid" ColumnName="dersid" DataSourceName="OkulProjesi.dbo.Table_Not" DataTypeServer="tinyint" DbType="Byte" Direction="Input" ParameterName="@dersid" Precision="0" ProviderType="TinyInt" Scale="0" Size="1" SourceColumn="dersid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="ogrenciiid" ColumnName="ogrenciiid" DataSourceName="OkulProjesi.dbo.Table_Not" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@ogrenciiid" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ogrenciiid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="sınav1" ColumnName="sınav1" DataSourceName="OkulProjesi.dbo.Table_Not" DataTypeServer="tinyint" DbType="Byte" Direction="Input" ParameterName="@sınav1" Precision="0" ProviderType="TinyInt" Scale="0" Size="1" SourceColumn="sınav1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="sınav2" ColumnName="sınav2" DataSourceName="OkulProjesi.dbo.Table_Not" DataTypeServer="tinyint" DbType="Byte" Direction="Input" ParameterName="@sınav2" Precision="0" ProviderType="TinyInt" Scale="0" Size="1" SourceColumn="sınav2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="sınav3" ColumnName="sınav3" DataSourceName="OkulProjesi.dbo.Table_Not" DataTypeServer="tinyint" DbType="Byte" Direction="Input" ParameterName="@sınav3" Precision="0" ProviderType="TinyInt" Scale="0" Size="1" SourceColumn="sınav3" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="proje" ColumnName="proje" DataSourceName="OkulProjesi.dbo.Table_Not" DataTypeServer="tinyint" DbType="Byte" Direction="Input" ParameterName="@proje" Precision="0" ProviderType="TinyInt" Scale="0" Size="1" SourceColumn="proje" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="ortlama" ColumnName="ortlama" DataSourceName="OkulProjesi.dbo.Table_Not" DataTypeServer="decimal(5, 0)" DbType="Decimal" Direction="Input" ParameterName="@ortlama" Precision="5" ProviderType="Decimal" Scale="0" Size="5" SourceColumn="ortlama" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="durum" ColumnName="durum" DataSourceName="OkulProjesi.dbo.Table_Not" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@durum" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="durum" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Original_notid" ColumnName="notid" DataSourceName="OkulProjesi.dbo.Table_Not" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Original_notid" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="notid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -97,7 +283,7 @@ SELECT dersid, dersad FROM Table_Ders WHERE (dersid = @dersid)</CommandText>
   <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Table_Ders" msprop:Generator_TableClassName="Table_DersDataTable" msprop:Generator_TableVarName="tableTable_Ders" msprop:Generator_TablePropName="Table_Ders" msprop:Generator_RowDeletingName="Table_DersRowDeleting" msprop:Generator_RowChangingName="Table_DersRowChanging" msprop:Generator_RowEvHandlerName="Table_DersRowChangeEventHandler" msprop:Generator_RowDeletedName="Table_DersRowDeleted" msprop:Generator_UserTableName="Table_Ders" msprop:Generator_RowChangedName="Table_DersRowChanged" msprop:Generator_RowEvArgName="Table_DersRowChangeEvent" msprop:Generator_RowClassName="Table_DersRow">
+        <xs:element name="Table_Ders" msprop:Generator_TableClassName="Table_DersDataTable" msprop:Generator_TableVarName="tableTable_Ders" msprop:Generator_RowChangedName="Table_DersRowChanged" msprop:Generator_TablePropName="Table_Ders" msprop:Generator_RowDeletingName="Table_DersRowDeleting" msprop:Generator_RowChangingName="Table_DersRowChanging" msprop:Generator_RowEvHandlerName="Table_DersRowChangeEventHandler" msprop:Generator_RowDeletedName="Table_DersRowDeleted" msprop:Generator_RowClassName="Table_DersRow" msprop:Generator_UserTableName="Table_Ders" msprop:Generator_RowEvArgName="Table_DersRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="dersid" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndersid" msprop:Generator_ColumnPropNameInRow="dersid" msprop:Generator_ColumnPropNameInTable="dersidColumn" msprop:Generator_UserColumnName="dersid" type="xs:unsignedByte" />
@@ -111,11 +297,74 @@ SELECT dersid, dersad FROM Table_Ders WHERE (dersid = @dersid)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="kulupad" msprop:Generator_ColumnVarNameInTable="columnkulupad" msprop:Generator_ColumnPropNameInRow="kulupad" msprop:Generator_ColumnPropNameInTable="kulupadColumn" msprop:Generator_UserColumnName="kulupad" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ogrenciid" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnogrenciid" msprop:Generator_ColumnPropNameInRow="ogrenciid" msprop:Generator_ColumnPropNameInTable="ogrenciidColumn" msprop:Generator_UserColumnName="ogrenciid" type="xs:int" />
+              <xs:element name="ogrenciadı" msprop:Generator_ColumnVarNameInTable="columnogrenciadı" msprop:Generator_ColumnPropNameInRow="ogrenciadı" msprop:Generator_ColumnPropNameInTable="ogrenciadıColumn" msprop:Generator_UserColumnName="ogrenciadı" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ogrencisoyadı" msprop:Generator_ColumnVarNameInTable="columnogrencisoyadı" msprop:Generator_ColumnPropNameInRow="ogrencisoyadı" msprop:Generator_ColumnPropNameInTable="ogrencisoyadıColumn" msprop:Generator_UserColumnName="ogrencisoyadı" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="orgrencisinsiyet" msprop:Generator_ColumnVarNameInTable="columnorgrencisinsiyet" msprop:Generator_ColumnPropNameInRow="orgrencisinsiyet" msprop:Generator_ColumnPropNameInTable="orgrencisinsiyetColumn" msprop:Generator_UserColumnName="orgrencisinsiyet" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Table_Not" msprop:Generator_TableClassName="Table_NotDataTable" msprop:Generator_TableVarName="tableTable_Not" msprop:Generator_TablePropName="Table_Not" msprop:Generator_RowDeletingName="Table_NotRowDeleting" msprop:Generator_RowChangingName="Table_NotRowChanging" msprop:Generator_RowEvHandlerName="Table_NotRowChangeEventHandler" msprop:Generator_RowDeletedName="Table_NotRowDeleted" msprop:Generator_UserTableName="Table_Not" msprop:Generator_RowChangedName="Table_NotRowChanged" msprop:Generator_RowEvArgName="Table_NotRowChangeEvent" msprop:Generator_RowClassName="Table_NotRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="notid" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnnotid" msprop:Generator_ColumnPropNameInRow="notid" msprop:Generator_ColumnPropNameInTable="notidColumn" msprop:Generator_UserColumnName="notid" type="xs:int" />
+              <xs:element name="dersid" msprop:Generator_ColumnVarNameInTable="columndersid" msprop:Generator_ColumnPropNameInRow="dersid" msprop:Generator_ColumnPropNameInTable="dersidColumn" msprop:Generator_UserColumnName="dersid" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="ogrenciiid" msprop:Generator_ColumnVarNameInTable="columnogrenciiid" msprop:Generator_ColumnPropNameInRow="ogrenciiid" msprop:Generator_ColumnPropNameInTable="ogrenciiidColumn" msprop:Generator_UserColumnName="ogrenciiid" type="xs:int" minOccurs="0" />
+              <xs:element name="sınav1" msprop:Generator_ColumnVarNameInTable="columnsınav1" msprop:Generator_ColumnPropNameInRow="sınav1" msprop:Generator_ColumnPropNameInTable="sınav1Column" msprop:Generator_UserColumnName="sınav1" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="sınav2" msprop:Generator_ColumnVarNameInTable="columnsınav2" msprop:Generator_ColumnPropNameInRow="sınav2" msprop:Generator_ColumnPropNameInTable="sınav2Column" msprop:Generator_UserColumnName="sınav2" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="sınav3" msprop:Generator_ColumnVarNameInTable="columnsınav3" msprop:Generator_ColumnPropNameInRow="sınav3" msprop:Generator_ColumnPropNameInTable="sınav3Column" msprop:Generator_UserColumnName="sınav3" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="proje" msprop:Generator_ColumnVarNameInTable="columnproje" msprop:Generator_ColumnPropNameInRow="proje" msprop:Generator_ColumnPropNameInTable="projeColumn" msprop:Generator_UserColumnName="proje" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="ortlama" msprop:Generator_ColumnVarNameInTable="columnortlama" msprop:Generator_ColumnPropNameInRow="ortlama" msprop:Generator_ColumnPropNameInTable="ortlamaColumn" msprop:Generator_UserColumnName="ortlama" type="xs:decimal" minOccurs="0" />
+              <xs:element name="durum" msprop:Generator_ColumnVarNameInTable="columndurum" msprop:Generator_ColumnPropNameInRow="durum" msprop:Generator_ColumnPropNameInTable="durumColumn" msprop:Generator_UserColumnName="durum" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Table_Ders" />
       <xs:field xpath="mstns:dersid" />
     </xs:unique>
+    <xs:unique name="DataTable1_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTable1" />
+      <xs:field xpath="mstns:ogrenciid" />
+    </xs:unique>
+    <xs:unique name="Table_Not_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Table_Not" />
+      <xs:field xpath="mstns:notid" />
+    </xs:unique>
   </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="FK_Table_Not_Table_Ders" msdata:parent="Table_Ders" msdata:child="Table_Not" msdata:parentkey="dersid" msdata:childkey="dersid" msprop:Generator_UserChildTable="Table_Not" msprop:Generator_ChildPropName="GetTable_NotRows" msprop:Generator_UserRelationName="FK_Table_Not_Table_Ders" msprop:Generator_ParentPropName="Table_DersRow" msprop:Generator_RelationVarName="relationFK_Table_Not_Table_Ders" msprop:Generator_UserParentTable="Table_Ders" />
+    </xs:appinfo>
+  </xs:annotation>
 </xs:schema>

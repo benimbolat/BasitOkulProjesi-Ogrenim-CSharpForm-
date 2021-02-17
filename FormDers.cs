@@ -59,5 +59,17 @@ namespace Okul_Projesi
             textBoxdersid.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             textBoxdersad.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
         }
+
+        private void linkLabelcıkıs_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void linkLabelgeri_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            Formogretmen fr = new Formogretmen();
+            fr.Show();
+        }
     }
 }
